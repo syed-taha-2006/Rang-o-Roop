@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Rang o Roop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-page="admin">
+    <header>
+        <div class="promo-bar">
+            <p>Admin access for university demo and CRM management.</p>
+        </div>
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <img src="CL LOGO-Photoroom.png" alt="Logo" style="height: 76px; width: 100px;">
+            <ul class="nav-links">
+                <li><a href="index.html#new" class="anc-1">New In</a></li>
+                <li><a href="index.html#women" class="anc-1">Women</a></li>
+                <li><a href="index.html#men" class="anc-1">Men</a></li>
+                <li><a href="index.html#accessories" class="anc-1">Accessories</a></li>
+                <li><a href="index.html#journal" class="anc-1">Journal</a></li>
+                <li><a href="index.html" class="anc-1">Home</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <div class="cart-icon">CART (0)</div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-container">
+        <section id="admin-login-section" class="login-panel">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <button type="submit" class="btn">Log In</button>
+                <p id="admin-message" class="message"></p>
+            </form>
+            <p class="admin-note">Use example credentials from <code>.env.example</code> to log in.</p>
+        </section>
+
+        <section id="admin-dashboard" class="dashboard hidden">
+            <div class="dashboard-header">
+                <div>
+                    <h2>Order Dashboard</h2>
+                    <p>Total orders: <span id="order-count">0</span></p>
+                </div>
+                <button id="admin-logout" class="btn">Logout</button>
+            </div>
+            <div class="dashboard-summary">
+                <div class="metric-card">
+                    <span>Total Orders</span>
+                    <h3 id="summary-total">0</h3>
+                </div>
+                <div class="metric-card">
+                    <span>Pending</span>
+                    <h3 id="summary-pending">0</h3>
+                </div>
+                <div class="metric-card">
+                    <span>Shipped</span>
+                    <h3 id="summary-shipped">0</h3>
+                </div>
+                <div class="metric-card">
+                    <span>Customers</span>
+                    <h3 id="summary-customers">0</h3>
+                </div>
+            </div>
+            <div class="dashboard-panel">
+                <table class="order-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Customer</th>
+                            <th>Email</th>
+                            <th>Qty</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-table-body"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

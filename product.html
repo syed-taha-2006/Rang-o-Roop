@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product | Rang o Roop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-page="product">
+    <header>
+        <div class="promo-bar">
+            <p>Order today and get email confirmation instantly.</p>
+        </div>
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <img src="CL LOGO-Photoroom.png" alt="Logo" style="height: 76px; width: 100px;">
+            <ul class="nav-links">
+                <li><a href="index.html#new" class="anc-1">New In</a></li>
+                <li><a href="index.html#women" class="anc-1">Women</a></li>
+                <li><a href="index.html#men" class="anc-1">Men</a></li>
+                <li><a href="index.html#accessories" class="anc-1">Accessories</a></li>
+                <li><a href="index.html#journal" class="anc-1">Journal</a></li>
+                <li><a href="admin.html" class="anc-1">Admin</a></li>
+            </ul>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <div class="cart-icon">CART (0)</div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <section class="product-detail-grid">
+            <div class="product-image-section">
+                <img id="product-image" src="image.png" alt="Product Image">
+            </div>
+            <div class="product-info">
+                <span id="product-badge" class="badge"></span>
+                <h1 id="product-name">Product Title</h1>
+                <p id="product-description">Product description will appear here.</p>
+                <span class="price" id="product-price">$0.00</span>
+                <div class="colors" id="product-colors"></div>
+                <p class="small-text">Available sizes: S / M / L / XL</p>
+                <form id="order-form" class="order-form">
+                    <h3 id="product-form-title">Order this item</h3>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="03XX-XXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea id="address" name="address" rows="3" required placeholder="Street, City, Postal Code"></textarea>
+                    </div>
+                    <div class="form-group two-column">
+                        <div>
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                        </div>
+                        <div>
+                            <label for="notes">Notes</label>
+                            <input type="text" id="notes" name="notes" placeholder="Size request or delivery note">
+                        </div>
+                    </div>
+                    <button type="submit" id="order-submit-button" class="btn">
+                        <span class="button-text">Submit Order</span>
+                        <span class="button-loader" aria-hidden="true"></span>
+                    </button>
+                    <p id="order-message" class="message"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="order-popup" class="popup-overlay hidden" role="dialog" aria-modal="true">
+        <div class="popup-card">
+            <button id="popup-close" class="popup-close" aria-label="Close popup">×</button>
+            <div class="popup-content">
+                <h3>Order Confirmed!</h3>
+                <p>Your order has been placed successfully. Please check your email for confirmation.</p>
+                <div class="popup-actions">
+                    <button id="popup-ok" class="btn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
