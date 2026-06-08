@@ -93,7 +93,8 @@ When admin changes an order status:
 - `admin.html` — admin/CRM dashboard
 - `script.js` — frontend logic for order submission and admin dashboard
 - `style.css` — all styling for pages, buttons, popup, and dashboard
-- `server.js` — Express backend, order endpoints, and email handling
+- `app.py` — Flask backend, order endpoints, and email handling
+- `requirements.txt` — Python dependencies for local run and deployment
 - `orders.json` — stored order history
 
 ## Why It Works
@@ -106,21 +107,31 @@ This store is built as a simple full-stack demo that demonstrates:
 - admin dashboard and login flow
 - basic CRM-style presentation of customer and order data
 
+The backend now runs on Flask, while the existing HTML, CSS, JavaScript, and image files stay in the project root and are served directly by Flask. That keeps the migration simple and preserves the current frontend without rewriting the pages.
+
+## Flask Structure
+
+- `app.py` — Flask backend, API routes, and email handling
+- `requirements.txt` — Python packages needed for the project
+- `index.html`, `product.html`, `admin.html` — frontend pages served by Flask
+- `style.css`, `script.js`, images — static assets served directly by Flask
+
 ## Packages Used
 
-- `express` — creates the web server and API routes
-- `dotenv` — loads environment values from `.env`
-- `nodemailer` — sends emails through Gmail
+- `Flask` — serves pages and exposes the API routes
+- `python-dotenv` — loads environment values from `.env`
+- `gunicorn` — production-ready WSGI server for hosting
+- `smtplib` and `email.mime` — built-in Python modules for Gmail SMTP email sending
 
 ## How to run locally
 
-To run this project locally, make sure Node.js is installed on your machine.
+To run this project locally, make sure Python 3 is installed on your machine.
 
 You can verify installation with:
 
 ```bash
-node -v
-npm -v
+python --version
+pip --version
 ```
 
 Then follow these steps after cloning the repo:
@@ -128,7 +139,7 @@ Then follow these steps after cloning the repo:
 ```bash
 git clone <repo-url>
 cd Rang-o-Roop
-npm install
+pip install -r requirements.txt
 ```
 
 Create the `.env` file manually in the project root.
@@ -152,7 +163,7 @@ Update `.env` with your real Gmail and admin values before starting the app.
 After `.env` is ready:
 
 ```bash
-npm start
+python app.py
 ```
 
 Open the site in a browser at:
@@ -161,16 +172,14 @@ Open the site in a browser at:
 http://localhost:3000
 ```
 
-This project needs the Node.js backend to work fully. That means:
+This project needs the Flask backend to work fully. That means:
 
 - the order form submits to `/api/order`
 - the backend saves `orders.json`
-- email notifications use `nodemailer`
-- admin actions use server routes
+- email notifications use Gmail SMTP
+- admin actions use Flask server routes
 
-So, no, ye project seedha Netlify par deploy karke poori tarah kaam nahi karega, kyunki Netlify static hosting hai. Agar aap sirf frontend pages host karna chahein, to static files chal sakte hain, lekin order submission aur emails tab kaam nahi karenge.
-
-For the full working demo, run it locally or deploy to a Node-capable hosting service (for example, Render, Heroku, or a VPS).
+For deployment, use a Python-friendly host such as Render, Railway, or a VPS. Netlify is still not enough for the full app because the backend must run on Python.
 
 ```text
 http://localhost:3000
